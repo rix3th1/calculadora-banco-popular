@@ -28,19 +28,23 @@ export function calcInterestAccordingToCapital(capital: number) {
 
 export function calcCapitalIncrement(capital: number) {
   const interest = calcInterestAccordingToCapital(capital);
-  return (capital * interest) / 100;
+  return {
+    value: (capital * interest) / 100,
+    interest,
+  };
 }
 
 export function calc(initial_capital: number, days: number) {
   const response = [];
 
   for (let i = 1; i <= days; i++) {
-    const capitalIncremented = calcCapitalIncrement(initial_capital);
-    initial_capital += capitalIncremented;
+    const { value, interest } = calcCapitalIncrement(initial_capital);
+    initial_capital += value;
 
     response.push({
-      "Capital Final": `$${initial_capital.toFixed(2)}`,
-      "Capital Incrementada": `$${capitalIncremented.toFixed(2)}`,
+      "Capital Final": `$${initial_capital.toFixed()}`,
+      "Capital Incrementada": `$${value.toFixed()}`,
+      Interes: `${interest}%`,
       "Día No.": i,
       "Días totales": days,
     });
