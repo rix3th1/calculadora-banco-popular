@@ -26,7 +26,7 @@ function Calc() {
 
   return (
     <main className="flex justify-center items-center flex-col">
-      <h1 className="font-bold text-4xl my-10">
+      <h1 className="font-bold lg:text-4xl my-10 text-center sm:text-2xl">
         Calculadora de capital Banco Popular
       </h1>
 
@@ -55,7 +55,7 @@ function Calc() {
       </form>
 
       {infoCapital && (
-        <section className="mt-10 bg-slate-950 rounded-lg p-5">
+        <section className="mt-10 mx-20 bg-slate-900 rounded-lg p-5">
           {infoCapital.map((info: any, i: number) => (
             <div key={i} className="flex flex-col">
               <pre>{JSON.stringify(info, null, 2)}</pre>
