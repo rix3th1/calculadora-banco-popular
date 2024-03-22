@@ -42,11 +42,11 @@ export function calc(initial_capital: number, days: number) {
     initial_capital += value;
 
     response.push({
+      "Día No.": i,
       "Capital Final": `$${initial_capital.toFixed()}`,
       "Capital Incrementada": `$${value.toFixed()}`,
       Interes: `${interest}%`,
-      "Día No.": i,
-      "Días totales": days,
+      Ganancia: `$${(value - initial_capital).toFixed()}`,
     });
   }
 
