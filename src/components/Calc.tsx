@@ -62,6 +62,9 @@ function Calc() {
           <h2 className="text-2xl font-bold">
             Ganancias Totales {infoCapital.toReversed()[0]["Ganancia"]} Aprox.
           </h2>
+          <h2 className="text-2xl font-bold">
+            Capital Final {infoCapital.toReversed()[0]["Capital Final"]} Aprox.
+          </h2>
         </>
       )}
       {infoCapital.length !== 0 && (
