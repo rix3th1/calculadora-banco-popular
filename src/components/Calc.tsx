@@ -56,13 +56,13 @@ function Calc() {
 
       {formData.capital && formData.days && infoCapital.length !== 0 && (
         <>
-          <h2 className="text-2xl font-bold mt-10">
+          <h2 className="text-sm font-bold mt-10">
             Días Totales {formData.days}
           </h2>
-          <h2 className="text-2xl font-bold">
+          <h2 className="text-sm font-bold">
             Ganancias Totales {infoCapital.toReversed()[0]["Ganancia"]} Aprox.
           </h2>
-          <h2 className="text-2xl font-bold">
+          <h2 className="text-sm font-bold">
             Capital Final {infoCapital.toReversed()[0]["Capital Final"]} Aprox.
           </h2>
         </>
