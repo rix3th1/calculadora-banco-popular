@@ -9,7 +9,7 @@ function Calc() {
     days: "",
   });
 
-  const [infoCapital, setInfoCapital] = useState<any>([]);
+  const [infoCapital, setInfoCapital] = useState([]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prevFormData) => ({
@@ -21,7 +21,7 @@ function Calc() {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    setInfoCapital(calc(+formData.capital, +formData.days));
+    setInfoCapital(calc(+formData.capital, +formData.days) as any);
   };
 
   return (
@@ -54,7 +54,17 @@ function Calc() {
         </button>
       </form>
 
-      {infoCapital && (
+      {formData.capital && formData.days && infoCapital.length !== 0 && (
+        <>
+          <h2 className="text-2xl font-bold mt-10">
+            Días Totales {formData.days}
+          </h2>
+          <h2 className="text-2xl font-bold">
+            Ganancias Totales {infoCapital.toReversed()[0]["Ganancia"]} Aprox.
+          </h2>
+        </>
+      )}
+      {infoCapital.length !== 0 && (
         <section className="mt-10 mx-20 bg-slate-900 rounded-lg p-5">
           {infoCapital.map((info: any, i: number) => (
             <div key={i} className="flex flex-col">

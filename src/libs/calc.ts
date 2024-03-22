@@ -36,6 +36,7 @@ export function calcCapitalIncrement(capital: number) {
 
 export function calc(initial_capital: number, days: number) {
   const response = [];
+  const cp = initial_capital;
 
   for (let i = 1; i <= days; i++) {
     const { value, interest } = calcCapitalIncrement(initial_capital);
@@ -46,7 +47,7 @@ export function calc(initial_capital: number, days: number) {
       "Capital Final": `$${initial_capital.toFixed()}`,
       "Capital Incrementada": `$${value.toFixed()}`,
       Interes: `${interest}%`,
-      Ganancia: `$${(value - initial_capital).toFixed()}`,
+      Ganancia: `$${(initial_capital - cp).toFixed()}`,
     });
   }
 
