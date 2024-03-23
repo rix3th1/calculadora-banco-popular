@@ -49,6 +49,13 @@ function Calc() {
           <option value="v1">1</option>
           <option value="v2">2</option>
         </select>
+
+        <a
+          href={`/api/${version}`}
+          className="text-sm text-blue-600 dark:text-blue-500 underline"
+        >
+          Mostrar
+        </a>
       </div>
 
       <form onSubmit={onSubmit} className="flex flex-col gap-5">
