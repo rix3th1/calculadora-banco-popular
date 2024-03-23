@@ -9,6 +9,8 @@ function Calc() {
     days: "",
   });
 
+  const [version, setVersion] = useState<"v1" | "v2">("v2");
+
   const [infoCapital, setInfoCapital] = useState([]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,14 +23,33 @@ function Calc() {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    setInfoCapital(calc(+formData.capital, +formData.days) as any);
+    setInfoCapital(calc(+formData.capital, +formData.days, version) as any);
   };
 
   return (
     <main className="flex justify-center items-center flex-col">
-      <h1 className="font-bold lg:text-4xl my-10 text-center sm:text-2xl">
+      <h1 className="font-bold lg:text-4xl mt-10 mb-5 text-center sm:text-2xl">
         Calculadora de capital Banco Popular
       </h1>
+
+      <div className="flex items-center justify-center gap-2 my-5">
+        <label
+          htmlFor="version"
+          className="block text-sm font-medium text-gray-900 dark:text-white"
+        >
+          Versión
+        </label>
+        <select
+          id="version"
+          name="version"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          onChange={(e) => setVersion(e.target.value as any)}
+          value={version}
+        >
+          <option value="v1">1</option>
+          <option value="v2">2</option>
+        </select>
+      </div>
 
       <form onSubmit={onSubmit} className="flex flex-col gap-5">
         <input

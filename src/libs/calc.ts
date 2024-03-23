@@ -1,45 +1,45 @@
-export const daily_interests = {
-  "0Mto3M": 0.01,
-  "3M1to5M": 2.5,
-  "5M1to10M": 3.55,
-  "10M1to20M": 6.55,
-  "20M1to50M": 7.6,
-  "+50M": 10.15,
-};
+import interests from "@/interests/index.json";
 
-export function calcInterestAccordingToCapital(capital: number) {
+export function calcInterestAccordingToCapital(
+  capital: number,
+  version: "v1" | "v2"
+) {
   switch (true) {
     case capital >= 0 && capital <= 3000000:
-      return daily_interests["0Mto3M"];
+      return interests[version]["0Mto3M"];
     case capital > 3000000 && capital <= 5000000:
-      return daily_interests["3M1to5M"];
+      return interests[version]["3M1to5M"];
     case capital > 5000000 && capital <= 10000000:
-      return daily_interests["5M1to10M"];
+      return interests[version]["5M1to10M"];
     case capital > 10000000 && capital <= 20000000:
-      return daily_interests["10M1to20M"];
+      return interests[version]["10M1to20M"];
     case capital > 20000000 && capital <= 50000000:
-      return daily_interests["20M1to50M"];
+      return interests[version]["20M1to50M"];
     case capital > 50000000:
-      return daily_interests["+50M"];
+      return interests[version]["+50M"];
     default:
       return 0; // No se debería llegar aquí, pero por si acaso.
   }
 }
 
-export function calcCapitalIncrement(capital: number) {
-  const interest = calcInterestAccordingToCapital(capital);
+export function calcCapitalIncrement(capital: number, version: "v1" | "v2") {
+  const interest = calcInterestAccordingToCapital(capital, version);
   return {
     value: (capital * interest) / 100,
     interest,
   };
 }
 
-export function calc(initial_capital: number, days: number) {
+export function calc(
+  initial_capital: number,
+  days: number,
+  version: "v1" | "v2"
+) {
   const response = [];
   const cp = initial_capital;
 
   for (let i = 1; i <= days; i++) {
-    const { value, interest } = calcCapitalIncrement(initial_capital);
+    const { value, interest } = calcCapitalIncrement(initial_capital, version);
     initial_capital += value;
 
     response.push({
