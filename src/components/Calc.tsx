@@ -1,15 +1,24 @@
 "use client";
 
 import { calculate } from "@/libs/actions";
-import { useFormState } from "react-dom";
+import { useFormState, useFormStatus } from "react-dom";
 
 function Calc({ children }: { children: React.ReactElement }) {
   const [result, dispatch] = useFormState(calculate, undefined);
+  const { pending } = useFormStatus();
 
   return (
     <>
       <form action={dispatch} className="flex flex-col gap-5">
         {children}
+
+        <button
+          type="submit"
+          className="bg-blue-500 text-white p-2 rounded-md disabled:"
+          aria-disabled={pending}
+        >
+          {pending ? "Cargando..." : "Calcular"}
+        </button>
       </form>
 
       {result && result?.length !== 0 && (
