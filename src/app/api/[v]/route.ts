@@ -1,4 +1,5 @@
-import i from "@/interests/index.json";
+import i from "@/libs/interests.json";
+import type { Version } from "@/types";
 import { NextResponse } from "next/server";
 
 export function GET(
@@ -7,7 +8,7 @@ export function GET(
     params,
   }: {
     params: {
-      v: "v1" | "v2";
+      v: Version;
     };
   }
 ) {

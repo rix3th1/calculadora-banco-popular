@@ -1,8 +1,9 @@
-import interests from "@/interests/index.json";
+import interests from "@/libs/interests.json";
+import type { Version } from "@/types";
 
 export function calcInterestAccordingToCapital(
   capital: number,
-  version: "v1" | "v2"
+  version: Version
 ) {
   switch (true) {
     case capital >= 0 && capital <= 3000000:
@@ -22,7 +23,7 @@ export function calcInterestAccordingToCapital(
   }
 }
 
-export function calcCapitalIncrement(capital: number, version: "v1" | "v2") {
+export function calcCapitalIncrement(capital: number, version: Version) {
   const interest = calcInterestAccordingToCapital(capital, version);
   return {
     value: (capital * interest) / 100,
@@ -30,11 +31,7 @@ export function calcCapitalIncrement(capital: number, version: "v1" | "v2") {
   };
 }
 
-export function calc(
-  initial_capital: number,
-  days: number,
-  version: "v1" | "v2"
-) {
+export function calc(initial_capital: number, days: number, version: Version) {
   const response = [];
   const cp = initial_capital;
 
