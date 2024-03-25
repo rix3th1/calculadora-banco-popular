@@ -8,5 +8,8 @@ export async function calculate(_: unknown, formData: FormData) {
   const days = Number(formData.get("days"));
   const version = formData.get("version") as Version;
 
-  return calc(capital, days, version); // return the result of the calculation function to the client.
+  return {
+    result: calc(capital, days, version), // call the calculation function and pass the parameters.
+    version,
+  };
 }

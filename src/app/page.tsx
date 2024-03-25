@@ -1,5 +1,4 @@
 import CalcForm from "@/components/CalcForm";
-import FormInputs from "@/components/FormInputs";
 import Image from "next/image";
 
 export default function Home() {
@@ -18,9 +17,7 @@ export default function Home() {
         <span className="font-bold text-[#11B719]">Banco Popular</span>
       </h1>
 
-      <CalcForm>
-        <FormInputs />
-      </CalcForm>
+      <CalcForm />
     </main>
   );
 }
