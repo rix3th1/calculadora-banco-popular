@@ -75,13 +75,24 @@ function CalcForm() {
         <>
           <section className="text-center text-gray-600">
             <h2 className="text-sm font-bold mt-10">
-              Días Totales {result?.toReversed()[0]["Día No."]}
+              Días Totales{" "}
+              <span className="font-bold text-[#11B719]">
+                {result?.toReversed()[0]["Día No."]}
+              </span>
             </h2>
             <h2 className="text-sm font-bold">
-              Ganancias Totales {result?.toReversed()[0]["Ganancia"]} Aprox.
+              Ganancias Totales{" "}
+              <span className="font-bold text-[#11B719]">
+                {result?.toReversed()[0]["Ganancia"]}
+              </span>{" "}
+              Aprox.
             </h2>
             <h2 className="text-sm font-bold">
-              Capital Final {result?.toReversed()[0]["Capital Final"]} Aprox.
+              Capital Final{" "}
+              <span className="font-bold text-[#11B719]">
+                {result?.toReversed()[0]["Capital Final"]}
+              </span>{" "}
+              Aprox.
             </h2>
           </section>
 
