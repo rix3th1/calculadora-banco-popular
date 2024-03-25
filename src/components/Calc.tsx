@@ -14,7 +14,7 @@ function Calc({ children }: { children: React.ReactElement }) {
 
         <button
           type="submit"
-          className="bg-blue-500 text-white p-2 rounded-md disabled:"
+          className="bg-blue-500 text-white p-2 rounded-md disabled:bg-blue-400 disabled:cursor-not-allowed"
           aria-disabled={pending}
         >
           {pending ? "Cargando..." : "Calcular"}
