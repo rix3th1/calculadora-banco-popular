@@ -55,6 +55,7 @@ function CalcForm() {
           className="font-light rounded-lg border-0 p-3 text-gray-900 ring-1 placeholder:text-gray-400 placeholder:text-sm placeholder:font-extralight ring-gray-300 focus:ring-zinc-600"
           name="capital"
           placeholder="Ingrese el capital inicial"
+          max={50000000}
           autoFocus
           required
         />
@@ -62,6 +63,7 @@ function CalcForm() {
           type="number"
           className="font-light rounded-lg border-0 p-3 text-gray-900 ring-1 placeholder:text-gray-400 placeholder:text-sm placeholder:font-extralight ring-gray-300 focus:ring-zinc-600"
           name="days"
+          max={1826}
           placeholder="Ingrese el número de días"
           required
         />
